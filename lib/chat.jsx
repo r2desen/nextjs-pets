@@ -51,12 +51,15 @@ export default function Chat() {
     fetch("/admin/send-chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: userMessage, socket_id: socketId }),
+      body: JSON.stringify({
+        message: userMessage.trim(),
+        socket_id: socketId,
+      }),
     });
 
     setMessageLog((prev) => [
       ...prev,
-      { selfMessage: true, message: userMessage },
+      { selfMessage: true, message: userMessage.trim() },
     ]);
 
     setUserMessage("");
