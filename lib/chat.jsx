@@ -63,7 +63,7 @@ export default function Chat() {
   }
 
   function handleInputChange(e) {
-    setUserMessage(e.target.value.trim());
+    setUserMessage(e.target.value);
   }
 
   return (
